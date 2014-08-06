@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createIssueLinkType" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="linkTypeName" description="a String containing the new link type name" />
+    <parameter name="inwardLabel" description="a String containing a label for inward relationship" />
+    <parameter name="outwardLabel" description="a String containing a label for outward relationship" />
+
+    <sequence>
+
+        <payloadFactory media-type="json">
+            <format>
+                {
+                "name": "$1",
+                "inward": "$2",
+                "outward": "$3"
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:linkTypeName"/>
+                <arg evaluator="xml" expression="$func:inwardLabel"/>
+                <arg evaluator="xml" expression="$func:outwardLabel"/>
+            </args>
+        </payloadFactory>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="post" uri-template="{uri.var.jira.url}/rest/api/2/issueLinkType"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

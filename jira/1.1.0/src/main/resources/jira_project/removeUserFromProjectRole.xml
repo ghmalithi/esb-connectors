@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="removeUserFromProjectRole" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the user" name="username"/>
+    <parameter description="a String containing the id of the project" name="projectId"/>
+    <parameter description="a String containing the id of the role" name="roleId"/>
+    <sequence>
+        <property expression="$func:username" name="uri.var.username"/>
+        <property expression="$func:projectId" name="uri.var.projectId"/>
+        <property expression="$func:roleId" name="uri.var.roleId"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="DELETE" uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.projectId}/role/{uri.var.roleId}?user={uri.var.username}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

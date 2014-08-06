@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getAllGroups" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.jira.url}/rest/api/2/groups/picker"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

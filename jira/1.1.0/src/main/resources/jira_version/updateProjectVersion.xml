@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="updateProjectVersion" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the version id."  name="versionId" />
+    <parameter description="a String containing the name of the version." name="name"/>
+    <parameter description="a String containing the project key." name="projectKey"/>
+    <parameter description="a String containing the description about the version." name="description"/>
+    <parameter description="a Boolean indicating whether the version is archived." name="isArchived"/>
+    <parameter description="a Boolean indicating whether the version is released." name="isReleased"/>
+    <parameter description="a Date indicating the release date." name="releaseDate"/>
+    <parameter description="a Date indicating the user release date." name="userReleaseDate"/>
+
+    <sequence>
+        <property expression="$func:versionId" name="uri.var.versionId" scope="default" type="STRING" />
+        <property expression="$func:name" name="uri.var.name" scope="default" type="STRING" />
+        <property expression="$func:projectKey" name="uri.var.projectKey" scope="default" type="STRING" />
+        <property expression="$func:description" name="uri.var.description" scope="default" type="STRING" />
+        <property expression="$func:isArchived" name="uri.var.isArchived" scope="default" type="BOOLEAN" />
+        <property expression="$func:isReleased" name="uri.var.isReleased" scope="default" type="BOOLEAN" />
+        <property expression="$func:releaseDate" name="uri.var.releaseDate"
+                  scope="default" type="STRING" />
+        <property expression="$func:userReleaseDate" name="uri.var.userReleaseDate"
+                  scope="default" type="STRING" />
+
+        <payloadFactory media-type="json">
+            <format>
+                {
+                }
+            </format>
+            <args/>
+        </payloadFactory>
+
+        <script language="js"><![CDATA[
+                payload = mc.getPayloadJSON();
+                var fields=payload;
+
+                var name = mc.getProperty('uri.var.name');
+                var projectKey = mc.getProperty('uri.var.projectKey');
+                var description = mc.getProperty('uri.var.description');
+                var isArchived = mc.getProperty('uri.var.isArchived');
+                var isReleased = mc.getProperty('uri.var.isReleased');
+                var releaseDate = mc.getProperty('uri.var.releaseDate');
+                var userReleaseDate = mc.getProperty('uri.var.userReleaseDate');
+
+                if(name != null && name != ""){
+                    fields.name = name;
+                }
+
+                if(projectKey != null && projectKey != ""){
+                    fields.project = projectKey;
+                }
+
+                if(description != null && description != ""){
+                    fields.description = description;
+                }
+
+                if(isArchived != null && isArchived != ""){
+                    fields.archived = isArchived;
+                }
+
+                if(isReleased != null && isReleased != ""){
+                    fields.released = isReleased;
+                }
+
+                if(releaseDate != null && releaseDate != ""){
+                    fields.releaseDate = releaseDate;
+                }
+
+                if(userReleaseDate != null && userReleaseDate != ""){
+                    fields.userReleaseDate = userReleaseDate;
+                }
+
+                mc.setPayloadJSON(payload);
+      ]]></script>
+
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="put"  uri-template="{uri.var.jira.url}/rest/api/2/version/{uri.var.versionId}" />
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="updateUser" xmlns="http://ws.apache.org/ns/synapse">
+
+    <parameter description="a String containing the name of the user" name="username"/>
+    <parameter description="a String containing the new username" name="newUsername"/>
+    <parameter description="a String containing a new email address for the user" name="newEmail"/>
+    <parameter description="a String containing a new display name for the user" name="newDisplayName"/>
+
+    <sequence>
+        <property name="uri.var.username" expression="$func:username" />
+
+        <payloadFactory media-type="json">
+            <format>
+				{
+				"name": "$1",
+				"emailAddress":"$2",
+				"displayName": "$3"
+				}
+			</format>
+            <args>
+                <arg evaluator="xml" expression="$func:newUsername"/>
+                <arg evaluator="xml" expression="$func:newEmail"/>
+                <arg evaluator="xml" expression="$func:newDisplayName"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="put" uri-template="{uri.var.jira.url}/rest/api/2/user?username={uri.var.username}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

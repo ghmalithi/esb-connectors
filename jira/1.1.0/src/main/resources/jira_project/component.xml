@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="jira_project" type="synapse/template">
+
+	<subComponents>
+		<component name="getProject">
+			<file>getProject.xml</file>
+			<description>Get Jira Project information.</description>
+		</component>
+		<component name="getAllProjects">
+			<file>getAllProjects.xml</file>
+			<description>Get all Jira Projects.</description>
+		</component>
+
+		<component name="getAvatarsForProject">
+			<file>getAvatarsForProject.xml</file>
+			<description>returns all avatars which are visible for the currently
+				logged in user. The avatars are grouped into system and custom.
+			</description>
+		</component>
+		<component name="deleteAvatarForProject">
+			<file>deleteAvatarForProject.xml</file>
+			<description>Deletes avatar
+			</description>
+		</component>
+
+		<component name="getComponentsOfProject">
+			<file>getComponentsOfProject.xml</file>
+			<description>Contains a full representation of a the specified
+				project's components.
+			</description>
+		</component>
+		<component name="getStatusesOfProject">
+			<file>getStatusesOfProject.xml</file>
+			<description>Get all issue types with valid status values for a
+				project.
+			</description>
+		</component>
+		<component name="getVersionsOfProject">
+			<file>getVersionsOfProject.xml</file>
+			<description>Contains a full representation of a the specified
+				project's versions.
+			</description>
+		</component>
+		<component name="getRolesOfProject">
+			<file>getRolesOfProject.xml</file>
+			<description>Contains a list of roles in this project with links to
+				full details.
+			</description>
+		</component>
+		<component name="getRolesByIdOfProject">
+			<file>getRolesByIdOfProject.xml</file>
+			<description>Details on a given project role.
+			</description>
+		</component>
+		<component name="setActorsToRoleOfProject">
+			<file>setActorsToRoleOfProject.xml</file>
+			<description>Set actors to a given project role.
+			</description>
+		</component>
+		<component name="getUserAssignableProjects">
+			<file>getUserAssignableProjects.xml</file>
+			<description>Returns a list of users that match the search string and
+				can be assigned issues for all the given projects. This resource
+				cannot be accessed anonymously.
+			</description>
+		</component>
+
+
+		<component name="addUserToProjectRole">
+			<file>addUserToProjectRole.xml</file>
+			<description>Add a user to a given Project role. Project and Role
+				should be specified by their ids.
+			</description>
+		</component>
+
+		<component name="removeUserFromProjectRole">
+			<file>removeUserFromProjectRole.xml</file>
+			<description>Remove a user from a given Project role. Project and
+				Role
+				should be specified by their ids.
+			</description>
+		</component>
+
+		<component name="addGroupToProjectRole">
+			<file>addGroupToProjectRole.xml</file>
+			<description>Add a group to a given Project role. Project and Role
+				should be specified by their ids.
+			</description>
+		</component>
+
+		<component name="removeGroupFromProjectRole">
+			<file>removeGroupFromProjectRole.xml</file>
+			<description>Remove a group from a given Project role. Project and
+				Role should be specified by their ids.
+			</description>
+		</component>
+
+	</subComponents>
+</component>

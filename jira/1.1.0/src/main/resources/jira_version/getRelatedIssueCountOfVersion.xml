@@ -1,0 +1,13 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="getRelatedIssueCountOfVersion">
+    <parameter name="versionId" description="a String containing the version id." />
+    <sequence>
+        <property name="uri.var.versionId" expression="$func:versionId" />
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="GET"
+                      uri-template="{uri.var.jira.url}/rest/api/2/version/{uri.var.versionId}/relatedIssueCounts" />
+            </endpoint>
+        </call>
+    </sequence>
+</template>

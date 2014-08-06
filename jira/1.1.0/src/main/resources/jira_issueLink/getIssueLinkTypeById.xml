@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getIssueLinkTypeById" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the issue link type id." name="issueLinkTypeId"/>
+    <sequence>
+        <property expression="$func:issueLinkTypeId" name="uri.var.issueLinkTypeId"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="get" uri-template="{uri.var.jira.url}/rest/api/2/issueLinkType/{uri.var.issueLinkTypeId}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

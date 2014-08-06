@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createProjectVersion" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the version." name="name"/>
+    <parameter description="a String containing the project key." name="projectKey"/>
+    <parameter description="a String containing the description about the version." name="description"/>
+    <parameter description="a Boolean indicating whether the version is archived." name="isArchived"/>
+    <parameter description="a Boolean indicating whether the version is released." name="isReleased"/>
+    <parameter description="a Date indicating the release date." name="releaseDate"/>
+    <parameter description="a Date indicating the user release date." name="userReleaseDate"/>
+
+    <sequence>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+
+        <property expression="$func:releaseDate" name="uri.var.releaseDate"
+                  scope="default" type="STRING" />
+        <property expression="$func:userReleaseDate" name="uri.var.userReleaseDate"
+                  scope="default" type="STRING" />
+
+        <payloadFactory media-type="json">
+            <format>
+                {
+                "name": "$1",
+                "project": "$2",
+                "description": "$3",
+                "archived": $4,
+                "released": $5
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:name"/>
+                <arg evaluator="xml" expression="$func:projectKey"/>
+                <arg evaluator="xml" expression="$func:description"/>
+                <arg evaluator="xml" expression="$func:isArchived"/>
+                <arg evaluator="xml" expression="$func:isReleased"/>
+            </args>
+        </payloadFactory>
+
+        <script language="js"><![CDATA[
+                payload = mc.getPayloadJSON();
+                var fields=payload;
+
+                var releaseDate = mc.getProperty('uri.var.releaseDate');
+                var userReleaseDate = mc.getProperty('uri.var.userReleaseDate');
+
+                if(releaseDate != null && releaseDate != ""){
+                    fields.releaseDate = releaseDate;
+                }
+
+                if(userReleaseDate != null && userReleaseDate != ""){
+                    fields.userReleaseDate = userReleaseDate;
+                }
+
+                mc.setPayloadJSON(payload);
+      ]]></script>
+
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/version"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

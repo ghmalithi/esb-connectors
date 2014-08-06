@@ -1,0 +1,83 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="createIssueLink">
+    <parameter name="linkType" description="a String containing the link type" />
+    <parameter name="inwardIssueKey" description="a String containing the key of the inward issue" />
+    <parameter name="outwardIssueKey" description="a String containing the key of the outward issue" />
+    <parameter name="commentBody" description="a comment for the link" />
+    <parameter name="commentVisibilityType" description="a String containing the visibility type for the comment. This is either 'group' or 'roleLevel'" />
+    <parameter name="commentVisibilityValue" description="a String containing the group or role who can see the comment"/>
+
+    <sequence>
+
+        <property expression="$func:linkType" name="uri.var.linkType"
+                  scope="default" type="STRING" />
+        <property expression="$func:inwardIssueKey" name="uri.var.inwardIssueKey"
+                  scope="default" type="STRING" />
+        <property expression="$func:outwardIssueKey" name="uri.var.outwardIssueKey"
+                  scope="default" type="STRING" />
+        <property expression="$func:commentBody" name="uri.var.commentBody"
+                  scope="default" type="STRING" />
+        <property expression="$func:commentVisibilityType" name="uri.var.commentVisibilityType"
+                  scope="default" type="STRING" />
+        <property expression="$func:commentVisibilityValue" name="uri.var.commentVisibilityValue"
+                  scope="default" type="STRING" />
+
+        <payloadFactory media-type="json">
+            <format>
+                {
+                    "type": {
+                    "name": "$1"
+                    },
+                    "inwardIssue": {
+                    "key": "$2"
+                    },
+                    "outwardIssue": {
+                    "key": "$3"
+                    }
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:linkType"/>
+                <arg evaluator="xml" expression="$func:inwardIssueKey"/>
+                <arg evaluator="xml" expression="$func:outwardIssueKey"/>
+            </args>
+        </payloadFactory>
+
+        <script language="js"><![CDATA[
+                payload = mc.getPayloadJSON();
+                var fields=payload;
+
+                var commentBody = mc.getProperty('uri.var.commentBody');
+                var commentVisibilityType = mc.getProperty('uri.var.commentVisibilityType');
+                var commentVisibilityValue = mc.getProperty('uri.var.commentVisibilityValue');
+
+                if(commentBody != null && commentBody != ""){
+                    var comment={};
+                    comment.body=commentBody;
+
+                    if(commentVisibilityType != null && commentVisibilityType != ""){
+                        if(commentVisibilityValue != null && commentVisibilityValue != ""){
+                            var visibility={};
+                            visibility.type= commentVisibilityType;
+                            visibility.value= commentVisibilityValue;
+                            comment.visibility=visibility;
+                        }
+                    }
+
+                    fields.comment = comment;
+                }
+
+                mc.setPayloadJSON(payload);
+      ]]></script>
+
+
+        <property name="messageType" value="application/json" scope="axis2" />
+        <property name="Accept-Encoding" action="remove" scope="transport" />
+
+        <call>
+            <endpoint>
+                <http method="POST"
+                      uri-template="{uri.var.jira.url}/rest/api/2/issueLink" />
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,189 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="createIssue">
+    <parameter name="projectKey" description="a String containing the name of the project" />
+    <parameter name="summary" description="a String containing the summary about the issue" />
+    <parameter name="description" description="a String containing the description of the issue" />
+    <parameter name="issueType" description="a String containing the issue type" />
+    <parameter name="assignee" description="a String containing the assignee" />
+    <parameter name="reporter" description="a String containing the reporter" />
+    <parameter name="priority" description="a String containing the priority level" />
+    <parameter name="labels" description="an array containing labels" />
+    <parameter name="timetrackingOriginalEstimate" description="a String containing Estimated original timetracking value" />
+    <parameter name="timetrackingRemainingEstimate" description="a String containing Estimated remaining timetracking value" />
+    <parameter name="security" description="a String containing security id" />
+    <parameter name="versions" description="an array containing the version ids" />
+    <parameter name="environment" description="a String containing enviroment" />
+    <parameter name="duedate" description="a String containing duedate" />
+    <parameter name="fixVersions" description="an array of fix version names" />
+    <parameter name="components" description="an array of component names related to the issue" />
+
+    <sequence>
+
+        <property expression="$func:reporter" name="uri.var.reporter"
+                  scope="default" type="STRING" />
+        <property expression="$func:assignee" name="uri.var.assignee"
+                  scope="default" type="STRING" />
+        <property expression="$func:priority" name="uri.var.priority"
+                  scope="default" type="STRING" />
+        <property expression="$func:labels" name="uri.var.labels"
+                  scope="default" type="STRING" />
+        <property expression="$func:timetrackingOriginalEstimate" name="uri.var.timetrackingOriginalEstimate"
+                  scope="default" type="STRING" />
+        <property expression="$func:timetrackingRemainingEstimate" name="uri.var.timetrackingRemainingEstimate"
+                  scope="default" type="STRING" />
+        <property expression="$func:security" name="uri.var.security"
+                  scope="default" type="STRING" />
+        <property expression="$func:versions" name="uri.var.versions"
+                  scope="default" type="STRING" />
+        <property expression="$func:environment" name="uri.var.environment"
+                  scope="default" type="STRING" />
+        <property expression="$func:duedate" name="uri.var.duedate"
+                  scope="default" type="STRING" />
+        <property expression="$func:fixVersions" name="uri.var.fixVersions"
+                  scope="default" type="STRING" />
+        <property expression="$func:components" name="uri.var.components"
+                  scope="default" type="STRING" />
+
+        <payloadFactory media-type="json">
+            <format>{
+                "fields": {
+                "project":{
+                "key": "$1"
+                },
+                "summary": "$2",
+                "description": "$3",
+                "issuetype": {
+                "name": "$4"
+                }
+                }
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:projectKey"/>
+                <arg evaluator="xml" expression="$func:summary"/>
+                <arg evaluator="xml" expression="$func:description"/>
+                <arg evaluator="xml" expression="$func:issueType"/>
+            </args>
+        </payloadFactory>
+
+        <script language="js"><![CDATA[
+                payload = mc.getPayloadJSON();
+                var fields=payload.fields;
+
+                var reporter = mc.getProperty('uri.var.reporter');
+                var assignee = mc.getProperty('uri.var.assignee');
+                var priority = mc.getProperty('uri.var.priority');
+                var labels = mc.getProperty('uri.var.labels');
+                var timetrackingOriginal = mc.getProperty('uri.var.timetrackingOriginalEstimate');
+                var timetrackingRemaining =mc.getProperty('uri.var.timetrackingRemainingEstimate');
+                var timetracking={};
+                var security = mc.getProperty('uri.var.security');
+                var versions = mc.getProperty('uri.var.versions');
+                var environment = mc.getProperty('uri.var.environment');
+                var duedate = mc.getProperty('uri.var.duedate');
+                var fixVersions = mc.getProperty('uri.var.fixVersions');
+                var components = mc.getProperty('uri.var.components');
+
+
+                if(assignee != null && assignee != ""){
+                    var asg={};
+                    asg.name=assignee;
+                    fields.assignee = asg;
+                }
+
+                if(reporter != null && reporter != ""){
+                    var rep={};
+                    rep.name=reporter;
+                    fields.reporter = rep;
+                }
+
+                if(priority != null && priority != ""){
+                    var pri={};
+                    pri.name=priority;
+                    fields.priority = pri;
+                }
+
+                if(labels != null && labels != ""){
+                    var labelArray=[];
+                    var labelsParsed=eval("("+ labels +")");
+                    for each(var l in labelsParsed..label){
+                        labelArray.push(l+"");
+                    }
+                    fields.labels = labelArray;
+                }
+
+                if(timetrackingOriginal != null && timetrackingOriginal != ""){
+                    timetracking.originalEstimate=timetrackingOriginal;
+                    fields.timetracking=timetracking;
+                }
+
+                if(timetrackingRemaining != null && timetrackingRemaining != ""){
+                    timetracking.remainingEstimate=timetrackingRemaining;
+                    fields.timetracking=timetracking;
+                }
+
+                if(security != null && security != ""){
+                    var sec={};
+                    sec.id=security;
+                    fields.security = sec;
+                }
+
+                if(versions != null && versions != ""){
+
+                    var versionsJSON=[];
+                    var versionsParsed=eval("("+ versions +")");
+                    for each(var v in versionsParsed..name){
+                        var version={};
+                        version.name=v+"";
+                        versionsJSON.push(version);
+                    }
+                    fields.versions=versionsJSON;
+                }
+
+                if(environment != null && environment != ""){
+                    fields.environment = environment;
+                }
+
+                if(duedate != null && duedate != ""){
+                    fields.duedate = duedate;
+                }
+
+                if(fixVersions != null && fixVersions != ""){
+
+                    var fixVersionsJSON=[];
+                    var fixVersionsParsed=eval("("+ fixVersions +")");
+                    for each(var v in fixVersionsParsed..name){
+                        var fixVersion={};
+                        fixVersion.name=v+"";
+                        fixVersionsJSON.push(fixVersion);
+                    }
+                    fields.fixVersions=fixVersionsJSON;
+                }
+
+                if(components != null && components != ""){
+
+                    var componentsJSON=[];
+                    var componentsParsed=eval("("+ components +")");
+                    for each(var v in componentsParsed..name){
+                        var component={};
+                        component.name=v+"";
+                        componentsJSON.push(component);
+                    }
+                    fields.components=componentsJSON;
+                }
+
+                mc.setPayloadJSON(payload);
+      ]]></script>
+
+
+
+        <property name="messageType" value="application/json" scope="axis2" />
+        <property name="Accept-Encoding" action="remove" scope="transport" />
+
+        <call>
+            <endpoint>
+                <http method="POST"
+                      uri-template="{uri.var.jira.url}/rest/api/2/issue" />
+            </endpoint>
+        </call>
+    </sequence>
+</template>

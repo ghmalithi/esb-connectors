@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="jira_issueLink" type="synapse/template">
+
+	<subComponents>
+		<component name="createIssueLink">
+			<file>createIssueLink.xml</file>
+			<description>Creates an issue link between two issues</description>
+		</component>
+        <component name="getIssueLink">
+            <file>getIssueLink.xml</file>
+            <description>Returns a issue link given the link id</description>
+        </component>
+        <component name="deleteIssueLink">
+            <file>deleteIssueLink.xml</file>
+            <description>Deletes a issue link given the link id</description>
+        </component>
+        <component name="getAllIssueLinkTypes">
+            <file>getAllIssueLinkTypes.xml</file>
+            <description>Returns all issue link types</description>
+        </component>
+        <component name="createIssueLinkType">
+            <file>createIssueLinkType.xml</file>
+            <description>Creates an issue link type</description>
+        </component>
+        <component name="getIssueLinkTypeById">
+            <file>getIssueLinkTypeById.xml</file>
+            <description>Returns an issue link type given the link type id</description>
+        </component>
+        <component name="deleteIssueLinkType">
+            <file>deleteIssueLinkType.xml</file>
+            <description>deletes an issue link type given the link type id</description>
+        </component>
+        <component name="updateIssueLinkType">
+            <file>updateIssueLinkType.xml</file>
+            <description>updates an issue link type</description>
+        </component>
+	</subComponents>
+</component>

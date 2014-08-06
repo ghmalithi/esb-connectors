@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createComponent" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the component." name="name"/>
+    <parameter description="a String containing the project key." name="projectKey"/>
+    <parameter description="a String containing the description about the component." name="description"/>
+    <parameter description="a String containing the username of the lead of the component." name="leadUserName"/>
+    <parameter description="a String containing the assignee type for the issues." name="assigneeType"/>
+    <parameter description="a String (true/false) representing the validity of the assignee type." name="isAssigneeTypeValid"/>
+
+    <sequence>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+
+        <property expression="$func:description" name="uri.var.description"
+                  scope="default" type="STRING" />
+        <property expression="$func:leadUserName" name="uri.var.leadUserName"
+                  scope="default" type="STRING" />
+        <property expression="$func:assigneeType" name="uri.var.assigneeType"
+                  scope="default" type="STRING" />
+        <property expression="$func:isAssigneeTypeValid" name="uri.var.isAssigneeTypeValid"
+                  scope="default" type="STRING" />
+
+        <payloadFactory media-type="json">
+            <format>
+                {
+                "name": "$1",
+                "project": "$2"
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:name"/>
+                <arg evaluator="xml" expression="$func:projectKey"/>
+            </args>
+        </payloadFactory>
+
+        <script language="js"><![CDATA[
+                payload = mc.getPayloadJSON();
+                var fields=payload;
+
+                var description = mc.getProperty('uri.var.description');
+                var leadUserName = mc.getProperty('uri.var.leadUserName');
+                var assigneeType = mc.getProperty('uri.var.assigneeType');
+                var isAssigneeTypeValid = mc.getProperty('uri.var.isAssigneeTypeValid');
+
+                if(description != null && description != ""){
+                    fields.description = description;
+                }
+
+                if(leadUserName != null && leadUserName != ""){
+                    fields.leadUserName = leadUserName;
+                }
+
+                if(assigneeType != null && assigneeType != ""){
+                    fields.assigneeType = assigneeType;
+                }
+
+                if(isAssigneeTypeValid != null && isAssigneeTypeValid != ""){
+                    fields.isAssigneeTypeValid = isAssigneeTypeValid;
+                }
+
+                mc.setPayloadJSON(payload);
+      ]]></script>
+
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/component"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

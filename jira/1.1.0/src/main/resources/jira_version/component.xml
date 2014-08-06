@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="jira_version" type="synapse/template">
+
+    <subComponents>
+        <component name="createProjectVersion">
+            <file>createProjectVersion.xml</file>
+            <description>Creates a new version related to a project</description>
+        </component>
+        <component name="getVersionById">
+            <file>getVersionById.xml</file>
+            <description>Returns a version related to a version Id</description>
+        </component>
+        <component name="updateProjectVersion">
+            <file>updateProjectVersion.xml</file>
+            <description>Updates a version related to a version Id</description>
+        </component>
+        <component name="deleteProjectVersion">
+            <file>deleteProjectVersion.xml</file>
+            <description>Deletes a version related to a version Id</description>
+        </component>
+        <component name="getRelatedIssueCountOfVersion">
+            <file>getRelatedIssueCountOfVersion.xml</file>
+            <description>Returns the number of fixed in and affected issues for the given version.</description>
+        </component>
+        <component name="getUnresolvedIssueCountOfVersion">
+            <file>getUnresolvedIssueCountOfVersion.xml</file>
+            <description>Returns the number of unresolved issues for the given version</description>
+        </component>
+    </subComponents>
+</component>

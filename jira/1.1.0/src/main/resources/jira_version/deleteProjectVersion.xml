@@ -1,0 +1,36 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="deleteProjectVersion">
+    <parameter name="versionId" description="a String containing the version id." />
+    <parameter name="moveFixIssuesTo" description="a String containing the version id where the fix issues should me moved." />
+    <parameter name="moveAffectedIssuesTo" description="a String containing the version id where the affected issues should me moved." />
+    <sequence>
+        <property name="uri.var.versionId" expression="$func:versionId" />
+        <property name="uri.var.moveFixIssuesTo" expression="$func:moveFixIssuesTo" />
+        <property name="uri.var.moveAffectedIssuesTo" expression="$func:moveAffectedIssuesTo" />
+
+        <filter source="boolean(get-property('uri.var.moveFixIssuesTo'))" regex="false">
+            <then>
+                <property name="uri.var.expMoveFixIssuesTo" value="" />
+            </then>
+            <else>
+                <property name="uri.var.expMoveFixIssuesTo" expression= "fn:concat('moveFixIssuesTo=',get-property('uri.var.moveFixIssuesTo'),'&amp;')" />
+            </else>
+        </filter>
+
+        <filter source="boolean(get-property('uri.var.moveAffectedIssuesTo'))" regex="false">
+            <then>
+                <property name="uri.var.expMoveAffectedIssuesTo" value="" />
+            </then>
+            <else>
+                <property name="uri.var.expMoveAffectedIssuesTo" expression= "fn:concat('moveAffectedIssuesTo=',get-property('uri.var.moveAffectedIssuesTo'))" />
+            </else>
+        </filter>
+
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="delete"
+                      uri-template="{uri.var.jira.url}/rest/api/2/version/{uri.var.versionId}?{uri.var.expMoveFixIssuesTo}{uri.var.expMoveAffectedIssuesTo}" />
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getAllIssueLinkTypes" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="get" uri-template="{uri.var.jira.url}/rest/api/2/issueLinkType"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>
+

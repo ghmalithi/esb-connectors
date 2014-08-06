@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="jira_component" type="synapse/template">
+
+    <subComponents>
+        <component name="createComponent">
+            <file>createComponent.xml</file>
+            <description>Creates a new component related to a project</description>
+        </component>
+
+        <component name="deleteComponent">
+            <file>deleteComponent.xml</file>
+            <description>Deletes a component related to a project</description>
+        </component>
+
+        <component name="getComponent">
+            <file>getComponent.xml</file>
+            <description>Get a component related to a project given component id</description>
+        </component>
+
+        <component name="updateComponent">
+            <file>updateComponent.xml</file>
+            <description>Update a component related to a project given component id</description>
+        </component>
+
+        <component name="getComponentRelatedIssueCount">
+            <file>getComponentRelatedIssueCount.xml</file>
+            <description>Returns counts of issues related to this component.</description>
+        </component>
+    </subComponents>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getIssue" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the issue id." name="issueIdOrKey"/>
+    <sequence>
+        <property expression="$func:issueIdOrKey" name="uri.var.issueId"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                    <soapenv:Header/>
+                    <soapenv:Body/>
+                </soapenv:Envelope>
+            </format>
+            <args/>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="get" uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

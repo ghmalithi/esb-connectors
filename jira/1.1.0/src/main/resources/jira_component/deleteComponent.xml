@@ -1,0 +1,30 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="deleteComponent">
+
+    <parameter name="componentId" description="a String containing the component id." />
+    <parameter name="moveIssuesTo" description="a String containing the id of component the current issues should be moved from the deleted component"/>
+    <sequence>
+        <property name="uri.var.componentId" expression="$func:componentId" />
+        <property name="uri.var.moveIssuesTo" expression="$func:moveIssuesTo" />
+        <property name="messageType" scope="axis2" value="application/json"/>
+
+        <filter source="boolean(get-property('uri.var.moveIssuesTo'))" regex="false">
+            <then>
+                <call>
+                    <endpoint>
+                        <http method="DELETE"
+                              uri-template="{uri.var.jira.url}/rest/api/2/component/{uri.var.componentId}" />
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="DELETE"
+                              uri-template="{uri.var.jira.url}/rest/api/2/component/{uri.var.componentId}?moveIssuesTo={uri.var.moveIssuesTo}" />
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+
+</template>

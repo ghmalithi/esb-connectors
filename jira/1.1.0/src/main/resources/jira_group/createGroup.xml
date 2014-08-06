@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createGroup" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the group." name="groupName"/>
+    <parameter description="a String containing the name of the group." name="names"/>
+    <sequence>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <payloadFactory media-type="json">
+            <format>
+                {
+                "name":"$1",
+                "names":$2
+                }
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:groupName"/>
+                <arg evaluator="xml" expression="$func:names"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/group"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>
