@@ -1,0 +1,23 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="addGroupToProjectRole"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="groupname" expression="json-eval($.groupname)"/>
+        <property name="projectid" expression="json-eval($.projectid)"/>
+        <property name="roleid" expression="json-eval($.roleid)"/>
+        <jira.addGroupToProjectRole configKey="jiracon">
+            <groupName>{get-property('groupname')}</groupName>
+            <projectId>{get-property('projectid')}</projectId>
+            <roleId>{get-property('roleid')}</roleId>
+        </jira.addGroupToProjectRole>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

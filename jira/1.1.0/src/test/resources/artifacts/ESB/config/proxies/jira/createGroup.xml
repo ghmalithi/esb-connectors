@@ -1,0 +1,19 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="createGroup"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="groupname" expression="json-eval($.groupname)"/>
+        <jira.createGroup configKey="jiracon">
+            <groupName>{get-property('groupname')}</groupName>
+        </jira.createGroup>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

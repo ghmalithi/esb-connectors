@@ -1,0 +1,7 @@
+<localEntry key="jiraconInvalid">
+      <jira.init>
+         <username>%s</username>
+         <password>%s</password>
+         <uri>%s</uri>
+      </jira.init>
+</localEntry>

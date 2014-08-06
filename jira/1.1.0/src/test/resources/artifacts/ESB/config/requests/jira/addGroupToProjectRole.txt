@@ -1,0 +1,5 @@
+{
+"groupname":"%s",
+"projectid":"%s",
+"roleid":"%s"
+}

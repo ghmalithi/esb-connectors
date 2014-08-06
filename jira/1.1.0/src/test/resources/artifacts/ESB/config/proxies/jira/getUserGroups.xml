@@ -1,0 +1,19 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getUserGroups"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="username" expression="json-eval($.username)"/>
+        <jira.getUserGroups configKey="jiracon">
+            <username>{get-property('username')}</username>
+        </jira.getUserGroups>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

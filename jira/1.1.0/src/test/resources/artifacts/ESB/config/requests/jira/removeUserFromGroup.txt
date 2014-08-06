@@ -1,0 +1,4 @@
+{
+"groupname":"%s",
+"username":"%s"
+}

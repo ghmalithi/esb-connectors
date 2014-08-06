@@ -1,0 +1,16 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getAllProjects"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <jira.getAllProjects configKey="jiracon"/>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

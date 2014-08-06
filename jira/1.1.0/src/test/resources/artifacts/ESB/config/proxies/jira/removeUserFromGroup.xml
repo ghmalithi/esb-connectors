@@ -1,0 +1,21 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="removeUserFromGroup"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="groupname" expression="json-eval($.groupname)"/>
+        <property name="username" expression="json-eval($.username)"/>
+        <jira.removeUserFromGroup configKey="jiracon">
+            <groupName>{get-property('groupname')}</groupName>
+            <username>{get-property('username')}</username>
+        </jira.removeUserFromGroup>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
