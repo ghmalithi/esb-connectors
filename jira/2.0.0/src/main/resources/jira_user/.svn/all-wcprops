@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user
+END
+createUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/createUser.xml
+END
+searchIssueViewableUsers.xml
+K 25
+svn:wc:ra_dav:version-url
+V 218
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/searchIssueViewableUsers.xml
+END
+login.xml
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/login.xml
+END
+searchAssignableUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/searchAssignableUser.xml
+END
+searchAssignableUserMultiProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 226
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/searchAssignableUserMultiProject.xml
+END
+component.xml
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/component.xml
+END
+getUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/getUser.xml
+END
+createUser_soap.xml
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/wso2/interns/!svn/ver/3644/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/createUser_soap.xml
+END
+getUserPermissions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/getUserPermissions.xml
+END
+searchUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/searchUser.xml
+END
+deleteUser_soap.xml
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/deleteUser_soap.xml
+END
+getUserGroups.xml
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/getUserGroups.xml
+END
+deleteUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_user/deleteUser.xml
+END

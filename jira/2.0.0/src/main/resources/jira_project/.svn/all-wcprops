@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 192
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project
+END
+getRolesOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getRolesOfProject.xml
+END
+addGroupToProjectRole_rest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/addGroupToProjectRole_rest.xml
+END
+component.xml
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/wso2/interns/!svn/ver/3644/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/component.xml
+END
+removeUserFromProjectRole_rest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 227
+/wso2/interns/!svn/ver/3644/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/removeUserFromProjectRole_rest.xml
+END
+getProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getProject.xml
+END
+getUserAssignableProjects.xml
+K 25
+svn:wc:ra_dav:version-url
+V 222
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getUserAssignableProjects.xml
+END
+getAllProjects.xml
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getAllProjects.xml
+END
+getAllProjects_soap.xml
+K 25
+svn:wc:ra_dav:version-url
+V 216
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getAllProjects_soap.xml
+END
+addUserToProjectRole.xml
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/addUserToProjectRole.xml
+END
+getRolesByIdOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 218
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getRolesByIdOfProject.xml
+END
+removeGroupFromProjectRole_rest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 228
+/wso2/interns/!svn/ver/3644/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/removeGroupFromProjectRole_rest.xml
+END
+removeGroupFromProjectRole.xml
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/removeGroupFromProjectRole.xml
+END
+addUserToProjectRole_rest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 222
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/addUserToProjectRole_rest.xml
+END
+getStatusesOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getStatusesOfProject.xml
+END
+getVersionsOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getVersionsOfProject.xml
+END
+setActorsToRoleOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/setActorsToRoleOfProject.xml
+END
+deleteAvatarForProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 219
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/deleteAvatarForProject.xml
+END
+getAvatarsForProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getAvatarsForProject.xml
+END
+addGroupToProjectRole.xml
+K 25
+svn:wc:ra_dav:version-url
+V 218
+/wso2/interns/!svn/ver/3644/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/addGroupToProjectRole.xml
+END
+getComponentsOfProject.xml
+K 25
+svn:wc:ra_dav:version-url
+V 219
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/getComponentsOfProject.xml
+END
+removeUserFromProjectRole.xml
+K 25
+svn:wc:ra_dav:version-url
+V 222
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_project/removeUserFromProjectRole.xml
+END

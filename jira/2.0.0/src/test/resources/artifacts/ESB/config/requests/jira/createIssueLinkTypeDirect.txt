@@ -1,0 +1,6 @@
+{
+    "name": "%s",
+    "inward": "%s",
+    "outward": "%s"
+}
+

@@ -1,0 +1,24 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getComponentRelatedIssueCount"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="componentId" expression="json-eval($.componentId)"/>
+
+        <jira.getComponentRelatedIssueCount configKey="jiracon">
+            <componentId>{get-property('componentId')}</componentId>
+        </jira.getComponentRelatedIssueCount>
+
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+
+
+

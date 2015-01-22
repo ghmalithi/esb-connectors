@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createUser" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the user" name="username"/>
+    <parameter
+        description="a String containing the password of the user" name="password"/>
+    <parameter
+        description="a String containing the email address of the user" name="email"/>
+    <parameter
+        description="a String containing the display name of the user" name="displayName"/>
+    <sequence>
+        <payloadFactory media-type="json">
+            <format>
+				{
+				"name": "$1",
+				"password": "$2",
+				"emailAddress":"$3",
+				"displayName": "$4"
+				}
+			</format>
+            <args>
+                <arg evaluator="xml" expression="$func:username"/>
+                <arg evaluator="xml" expression="$func:password"/>
+                <arg evaluator="xml" expression="$func:email"/>
+                <arg evaluator="xml" expression="$func:displayName"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/user"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

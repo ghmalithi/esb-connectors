@@ -1,0 +1,24 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="deleteProjectVersion"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="versionId" expression="json-eval($.versionId)"/>
+        <property name="moveFixIssuesTo" expression="json-eval($.moveFixIssuesTo)"/>
+        <property name="moveAffectedIssuesTo" expression="json-eval($.moveAffectedIssuesTo)"/>
+        <jira.deleteProjectVersion configKey="jiracon">
+            <versionId>{get-property('versionId')}</versionId>
+            <moveFixIssuesTo>{get-property('moveFixIssuesTo')}</moveFixIssuesTo>
+            <moveAffectedIssuesTo>{get-property('moveAffectedIssuesTo')}</moveAffectedIssuesTo>
+        </jira.deleteProjectVersion>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

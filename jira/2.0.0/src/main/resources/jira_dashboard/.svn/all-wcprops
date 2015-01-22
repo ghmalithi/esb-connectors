@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_dashboard
+END
+component.xml
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_dashboard/component.xml
+END
+getDashboard.xml
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_dashboard/getDashboard.xml
+END
+getDashboardById.xml
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_dashboard/getDashboardById.xml
+END

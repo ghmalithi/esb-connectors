@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getUserGroups" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter
+        description="the username of the user for whom we require details" name="username"/>
+    <sequence>
+        <property expression="$func:username" name="uri.var.username"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                    <soapenv:Header/>
+                    <soapenv:Body/>
+                </soapenv:Envelope>
+            </format>
+            <args/>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.jira.url}/rest/api/2/user?username={uri.var.username}&amp;expand=groups"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="removeUserFromGroup_rest" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the group" name="groupName"/>
+    <parameter description="a String containing the name of the user" name="username"/>
+    <sequence>
+        <property expression="$func:groupName" name="uri.var.groupName"/>
+        <property expression="$func:username" name="uri.var.username"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="DELETE" uri-template="{uri.var.jira.url}/rest/api/2/group/user?groupname={uri.var.groupName}&amp;username={uri.var.username}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

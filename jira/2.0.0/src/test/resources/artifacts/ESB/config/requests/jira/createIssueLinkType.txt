@@ -1,0 +1,7 @@
+{
+"linkTypeName":"%s",
+"inwardLabel" :"%s",
+"outwardLabel" :"%s"
+}
+
+

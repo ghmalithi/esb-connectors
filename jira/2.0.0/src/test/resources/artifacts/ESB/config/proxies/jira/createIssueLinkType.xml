@@ -1,0 +1,24 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="createIssueLinkType"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="linkTypeName" expression="json-eval($.linkTypeName)"/>
+        <property name="inwardLabel" expression="json-eval($.inwardLabel)"/>
+        <property name="outwardLabel" expression="json-eval($.outwardLabel)"/>
+        <jira.createIssueLinkType configKey="jiracon">
+            <linkTypeName>{get-property('linkTypeName')}</linkTypeName>
+            <inwardLabel>{get-property('inwardLabel')}</inwardLabel>
+            <outwardLabel>{get-property('outwardLabel')}</outwardLabel>
+        </jira.createIssueLinkType>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

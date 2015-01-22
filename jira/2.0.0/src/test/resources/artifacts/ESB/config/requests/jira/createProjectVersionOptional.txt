@@ -1,0 +1,8 @@
+{
+"name":"%s",
+"projectKey":"%s",
+"description":"%s",
+"isArchived":%s,
+"isReleased":%s,
+"releaseDate":"%s"
+}

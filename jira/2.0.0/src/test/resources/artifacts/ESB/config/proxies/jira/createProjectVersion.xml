@@ -1,0 +1,30 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="createProjectVersion"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="name" expression="json-eval($.name)"/>
+        <property name="projectKey" expression="json-eval($.projectKey)"/>
+        <property name="description" expression="json-eval($.description)"/>
+        <property name="isArchived" expression="json-eval($.isArchived)"/>
+        <property name="isReleased" expression="json-eval($.isReleased)"/>
+        <property name="releaseDate" expression="json-eval($.releaseDate)"/>
+        <jira.createProjectVersion configKey="jiracon">
+            <name>{get-property('name')}</name>
+            <projectKey>{get-property('projectKey')}</projectKey>
+            <description>{get-property('description')}</description>
+            <isArchived>{get-property('isArchived')}</isArchived>
+            <isReleased>{get-property('isReleased')}</isReleased>
+            <releaseDate>{get-property('releaseDate')}</releaseDate>
+        </jira.createProjectVersion>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

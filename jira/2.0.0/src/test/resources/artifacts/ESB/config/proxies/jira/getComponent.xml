@@ -1,0 +1,22 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getComponent"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="componentId" expression="json-eval($.componentId)"/>
+
+        <jira.getComponent configKey="jiracon">
+            <componentId>{get-property('componentId')}</componentId>
+        </jira.getComponent>
+
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

@@ -1,0 +1,7 @@
+{
+"issueLinkTypeId" : "%s",
+"linkTypeName" : "%s",
+"inwardLabel" : "%s",
+"outwardLabel" : "%s"
+}
+

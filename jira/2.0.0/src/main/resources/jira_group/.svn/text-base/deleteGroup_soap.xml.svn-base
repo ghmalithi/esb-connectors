@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="deleteGroup" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the group" name="groupName"/>
+    <parameter
+        description="a String containing the name of a group to add the users of the deleted group" name="swapGroupName"/>
+    <sequence>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope
+                    xmlns:soap="http://soap.rpc.jira.atlassian.com"
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <soapenv:Header/>
+                    <soapenv:Body>
+                        <soap:deleteGroup soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+                            <in0 xsi:type="xsd:string">?</in0>
+                            <in1 xsi:type="xsd:string">$1</in1>
+                            <in2 xsi:type="xsd:string">$2</in2>
+                        </soap:deleteGroup>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:groupName"/>
+                <arg evaluator="xml" expression="$func:swapGroupName"/>
+            </args>
+        </payloadFactory>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="SOAPAction" scope="transport" value="urn:mediate"/>
+        <property name="messageType" scope="axis2" value="text/xml"/>
+        <property name="POST_TO_URI" scope="axis2" type="STRING" value="true"/>
+        <log level="full"/>
+        <call>
+            <endpoint>
+                <http format="soap11" method="POST" uri-template="{uri.var.jira.url}/rpc/soap/jirasoapservice-v2"/>
+            </endpoint>
+        </call>
+        <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
+    </sequence>
+</template>

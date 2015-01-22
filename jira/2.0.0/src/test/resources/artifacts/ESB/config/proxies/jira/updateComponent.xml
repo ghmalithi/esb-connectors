@@ -1,0 +1,32 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="updateComponent"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+
+        <property name="componentId" expression="json-eval($.componentId)"/>
+        <property name="name" expression="json-eval($.name)"/>
+        <property name="description" expression="json-eval($.description)"/>
+        <property name="leadUserName" expression="json-eval($.leadUserName)"/>
+        <property name="assigneeType" expression="json-eval($.assigneeType)"/>
+        <property name="isAssigneeTypeValid" expression="json-eval($.isAssigneeTypeValid)"/>
+
+        <jira.updateComponent configKey="jiracon">
+            <componentId>{get-property('componentId')}</componentId>
+            <name>{get-property('name')}</name>
+            <description>{get-property('description')}</description>
+            <leadUserName>{get-property('leadUserName')}</leadUserName>
+            <assigneeType>{get-property('assigneeType')}</assigneeType>
+            <isAssigneeTypeValid>{get-property('isAssigneeTypeValid')}</isAssigneeTypeValid>
+        </jira.updateComponent>
+
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

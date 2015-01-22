@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createUser_soap" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the user" name="username"/>
+    <parameter
+        description="a String containing the password of the user" name="password"/>
+    <parameter
+        description="a String containing the display name of the user" name="displayName"/>
+    <parameter
+        description="a String containing the email address of the user" name="email"/>
+    <sequence>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <soapenv:Body>
+                        <ns1:createUser
+                            soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://soap.rpc.jira.atlassian.com">
+                            <in0 xsi:type="xsd:string"/>
+                            <in1 xsi:type="xsd:string">$1</in1>
+                            <in2 xsi:type="xsd:string">$2</in2>
+                            <in3 xsi:type="xsd:string">$3</in3>
+                            <in4 xsi:type="xsd:string">$4</in4>
+                        </ns1:createUser>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:username"/>
+                <arg evaluator="xml" expression="$func:password"/>
+                <arg evaluator="xml" expression="$func:displayName"/>
+                <arg evaluator="xml" expression="$func:email"/>
+            </args>
+        </payloadFactory>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="SOAPAction" scope="transport" value="urn:mediate"/>
+        <property name="messageType" scope="axis2" value="text/xml"/>
+        <property name="POST_TO_URI" scope="axis2" type="STRING" value="true"/>
+        <log level="full"/>
+        <call>
+            <endpoint>
+                <http format="soap11" method="POST" uri-template="{uri.var.jira.url}/rpc/soap/jirasoapservice-v2"/>
+            </endpoint>
+        </call>
+        <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
+    </sequence>
+</template>

@@ -1,0 +1,20 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="deleteIssueLink"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="issueLinkId" expression="json-eval($.issueLinkId)"/>
+        <jira.deleteIssueLink configKey="jiracon">
+            <issueLinkId>{get-property('issueLinkId')}</issueLinkId>
+        </jira.deleteIssueLink>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

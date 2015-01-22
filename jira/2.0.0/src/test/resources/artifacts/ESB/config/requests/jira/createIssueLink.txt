@@ -1,0 +1,6 @@
+{
+"linkType":"%s",
+"inwardIssueKey":"%s",
+"outwardIssueKey":"%s",
+"commentBody":"%s"
+}

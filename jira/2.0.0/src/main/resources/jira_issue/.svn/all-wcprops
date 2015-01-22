@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue
+END
+getIssuePriorityById.xml
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssuePriorityById.xml
+END
+component.xml
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/component.xml
+END
+createIssue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/createIssue.xml
+END
+postComment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/postComment.xml
+END
+updateIssueAssignee.xml
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/updateIssueAssignee.xml
+END
+doTransition.xml
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/doTransition.xml
+END
+getIssue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssue.xml
+END
+getVotesForIssue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getVotesForIssue.xml
+END
+getIssuesForUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssuesForUser.xml
+END
+getIssuePriorities.xml
+K 25
+svn:wc:ra_dav:version-url
+V 213
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssuePriorities.xml
+END
+getTransitions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getTransitions.xml
+END
+getComments.xml
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getComments.xml
+END
+getIssueTypeById.xml
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssueTypeById.xml
+END
+updateIssue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/updateIssue.xml
+END
+deleteComment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/deleteComment.xml
+END
+addAttachmentToIssueId.xml
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/addAttachmentToIssueId.xml
+END
+getIssueTypes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/getIssueTypes.xml
+END
+updateComment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/wso2/interns/!svn/ver/3617/2013/malinthaa/jiraconnector-soap-rest/turing/components/mediation/mediation-library/connectors/org.wso2.carbon.connector.jira/1.1.0/src/main/resources/jira_issue/updateComment.xml
+END

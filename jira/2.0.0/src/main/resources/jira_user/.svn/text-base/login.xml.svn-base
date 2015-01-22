@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="login" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter
+        description="the username of the user for whom we require details" name="username"/>
+    <parameter
+        description="the username of the user for whom we require details" name="password"/>
+    <sequence>
+        <property expression="$func:username" name="uri.var.username"/>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <soapenv:Body>
+                        <ns1:login
+                            soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://soap.rpc.jira.atlassian.com">
+                            <in0 xsi:type="xsd:string">$1</in0>
+                            <in1 xsi:type="xsd:string">$2</in1>
+                        </ns1:login>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:username"/>
+                <arg evaluator="xml" expression="$func:password"/>
+            </args>
+        </payloadFactory>
+        <call>
+            <endpoint>
+                <http method="post" uri-template="{uri.var.jira.url}/rpc/soap/jirasoapservice-v2"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

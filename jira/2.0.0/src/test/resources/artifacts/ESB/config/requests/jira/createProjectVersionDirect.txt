@@ -1,0 +1,7 @@
+{
+"name":"%s",
+"project":"%s",
+"description":"%s",
+"archived":%s,
+"released":%s
+}

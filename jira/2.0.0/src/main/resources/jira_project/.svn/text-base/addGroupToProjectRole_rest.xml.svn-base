@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="addGroupToProjectRole_rest" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the group" name="groupName"/>
+    <parameter description="a String containing the id of the project" name="projectId"/>
+    <parameter description="a String containing the id of the role" name="roleId"/>
+    <sequence>
+        <property expression="$func:groupName" name="uri.var.groupName"/>
+        <property expression="$func:projectId" name="uri.var.projectId"/>
+        <property expression="$func:roleId" name="uri.var.roleId"/>
+        <payloadFactory media-type="json">
+            <format>
+				{
+				"group":["$1"]
+				}			
+			</format>
+            <args>
+                <arg evaluator="xml" expression="$func:groupName"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.projectId}/role/{uri.var.roleId}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

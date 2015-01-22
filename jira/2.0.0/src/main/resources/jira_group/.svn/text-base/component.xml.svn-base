@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="jira_group" type="synapse/template">
+
+	<subComponents>
+		<component name="getGroup">
+			<file>getGroup.xml</file>
+			<description>Returns REST representation for the requested group
+			</description>
+		</component>
+		<component name="addUserToGroup">
+			<file>addUserToGroup.xml</file>
+			<description>Adds the specified user to the specified group
+			</description>
+		</component>
+		<component name="addUserToGroup_rest">
+			<file>addUserToGroup_rest.xml</file>
+			<description>Adds the specified user to the specified group
+			</description>
+		</component>
+		<component name="removeUserFromGroup">
+			<file>removeUserFromGroup.xml</file>
+			<description> Removes the specified user from the specified group
+			</description>
+		</component>
+		<component name="removeUserFromGroup_rest">
+			<file>removeUserFromGroup_rest.xml</file>
+			<description> Removes the specified user from the specified group
+			</description>
+		</component>
+		<component name="createGroup">
+			<file>createGroup.xml</file>
+			<description> Creates a group with the given name
+			</description>
+		</component>
+		<component name="createGroup_soap">
+			<file>createGroup_soap.xml</file>
+			<description> Creates a group with the given name optionally adding
+				the given user to it
+			</description>
+		</component>
+		<component name="deleteGroup">
+			<file>deleteGroup.xml</file>
+			<description>Deletes the specified group by name
+			</description>
+		</component>
+		<component name="deleteGroup_soap">
+			<file>deleteGroup_soap.xml</file>
+			<description>Deletes the specified group by name
+			</description>
+		</component>
+		<component name="getGroupUsers">
+			<file>getGroupUsers.xml</file>
+			<description>Returns all users of a specified group
+			</description>
+		</component>
+		<component name="getGroupUsers_rest">
+			<file>getGroupUsers_rest.xml</file>
+			<description>Returns all users of a specified group
+			</description>
+		</component>
+		<component name="getAllGroups">
+			<file>getAllGroups.xml</file>
+			<description>Returns all groups
+			</description>
+		</component>
+	</subComponents>
+</component>

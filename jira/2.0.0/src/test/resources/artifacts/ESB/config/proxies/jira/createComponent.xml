@@ -1,0 +1,30 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="createComponent"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="name" expression="json-eval($.name)"/>
+        <property name="project" expression="json-eval($.project)"/>
+        <property name="description" expression="json-eval($.description)"/>
+        <property name="leadUserName" expression="json-eval($.leadUserName)"/>
+        <property name="assigneeType" expression="json-eval($.assigneeType)"/>
+        <property name="isAssigneeTypeValid" expression="json-eval($.isAssigneeTypeValid)"/>
+
+        <jira.createComponent configKey="jiracon">
+            <name>{get-property('name')}</name>
+            <projectKey>{get-property('project')}</projectKey>
+            <description>{get-property('description')}</description>
+            <leadUserName>{get-property('leadUserName')}</leadUserName>
+            <assigneeType>{get-property('assigneeType')}</assigneeType>
+            <isAssigneeTypeValid>{get-property('isAssigneeTypeValid')}</isAssigneeTypeValid>
+        </jira.createComponent>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

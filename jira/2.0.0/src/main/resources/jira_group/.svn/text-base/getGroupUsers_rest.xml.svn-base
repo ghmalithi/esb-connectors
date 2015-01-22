@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getGroupUsers_rest" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter description="a String containing the name of the group" name="groupName"/>
+    <parameter
+        description="a String containing the starting index of the user list" name="startIndex"/>
+    <parameter
+        description="a String containing the ending index of the user list" name="endIndex"/>
+    <sequence>
+        <property expression="$func:groupName" name="uri.var.groupName"/>
+        <property expression="$func:startIndex" name="uri.var.startIndex"/>
+        <property expression="$func:endIndex" name="uri.var.endIndex"/>
+        <payloadFactory media-type="xml">
+            <format>
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                    <soapenv:Header/>
+                    <soapenv:Body/>
+                </soapenv:Envelope>
+            </format>
+            <args/>
+        </payloadFactory>
+        <property name="messageType" scope="axis2" value="application/json"/>
+        <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.jira.url}/rest/api/2/group?groupname={uri.var.groupName}&amp;expand=users[{uri.var.startIndex}:{uri.var.endIndex}]"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

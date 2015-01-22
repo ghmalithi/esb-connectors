@@ -1,0 +1,26 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="createIssueLink"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="linkType" expression="json-eval($.linkType)"/>
+        <property name="inwardIssueKey" expression="json-eval($.inwardIssueKey)"/>
+        <property name="outwardIssueKey" expression="json-eval($.outwardIssueKey)"/>
+        <property name="commentBody" expression="json-eval($.commentBody)"/>
+        <jira.createIssueLink configKey="jiracon">
+            <linkType>{get-property('linkType')}</linkType>
+            <inwardIssueKey>{get-property('inwardIssueKey')}</inwardIssueKey>
+            <outwardIssueKey>{get-property('outwardIssueKey')}</outwardIssueKey>
+            <commentBody>{get-property('commentBody')}</commentBody>
+        </jira.createIssueLink>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>
+

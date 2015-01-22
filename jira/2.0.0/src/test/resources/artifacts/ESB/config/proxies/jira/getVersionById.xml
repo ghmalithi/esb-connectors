@@ -1,0 +1,19 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="getVersionById"
+       transports="https,http"
+       statistics="disable"
+       trace="disable"
+       startOnLoad="true">
+<target>
+    <inSequence>
+        <property name="versionId" expression="json-eval($.versionId)"/>
+        <jira.getVersionById configKey="jiracon">
+            <versionId>{get-property('versionId')}</versionId>
+        </jira.getVersionById>
+        <property name="messageType" value="application/json" scope="axis2"/>
+        <respond/>
+    </inSequence>
+    <outSequence/>
+</target>
+<description/>
+</proxy>

@@ -1,0 +1,4 @@
+{
+"componentId":"%s",
+"moveIssuesTo":"%s"
+}

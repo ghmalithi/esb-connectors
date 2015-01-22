@@ -1,0 +1,11 @@
+{
+    "type": {
+        "name": "%s"
+    },
+    "inwardIssue": {
+        "key": "%s"
+    },
+    "outwardIssue": {
+        "key": "%s"
+    }
+}
